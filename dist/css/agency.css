@@ -1,7 +1,7 @@
 /*!
  * Agency v0.0.1 (http://startbootstrap.com)
- * Copyright 2014 Start Bootstrap
- * Licensed under Apache 2.0 (https://github.com/IronSummitMedia/startbootstrap/blob/gh-pages/LICENSE)
+ * Copyright 2015 Start Bootstrap
+ * Licensed under Apache 2.0 (https://github.com/retrostyle/startbootstrap-agency/blob/gh-pages/LICENSE)
  */
 
 body {
@@ -58,8 +58,8 @@ h6 {
 }
 .btn-primary {
   color: #ffffff;
-  background-color: #fed136;
-  border-color: #fed136;
+  background-color: transparent;
+  border-color: transparent;
   font-family: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -70,8 +70,8 @@ h6 {
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
   color: #ffffff;
-  background-color: #fec503;
-  border-color: #f6bf01;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -93,11 +93,11 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-  background-color: #fed136;
-  border-color: #fed136;
+  background-color: transparent;
+  border-color: transparent;
 }
 .btn-primary .badge {
-  color: #fed136;
+  color: transparent;
   background-color: #ffffff;
 }
 .btn-xl {
@@ -553,7 +553,6 @@ aside.clients img {
 }
 section#contact {
   background-color: #222222;
-  background-image: url('../img/map-image.png');
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -629,10 +628,10 @@ ul.social-buttons {
 ul.social-buttons li a {
   display: block;
   background-color: #222222;
-  height: 40px;
-  width: 40px;
+  height: 100px;
+  width: 100px;
   border-radius: 100%;
-  font-size: 20px;
+  font-size: 100px;
   line-height: 40px;
   color: white;
   outline: none;
@@ -716,6 +715,10 @@ ul.social-buttons li a:active {
   /* Safari and Chrome */
   z-index: 1052;
 }
+.portfolio-modal .modal-backdrop {
+  opacity: 0;
+  display: none;
+}
 ::-moz-selection {
   text-shadow: none;
   background: #fed136;
@@ -732,4 +735,8 @@ img::-moz-selection {
 }
 body {
   webkit-tap-highlight-color: #fed136;
+}
+.fontAwesomeFix {
+  margin-top: 14px;
+  font: normal normal normal 80px/1 FontAwesome !important;
 }
