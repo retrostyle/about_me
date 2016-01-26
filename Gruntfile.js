@@ -22,7 +22,7 @@ module.exports = function(grunt) {
             main: {
                 expand: true,
                 cwd: 'src/',
-                src: ['*.html','*.js', 'js/**', 'mail/**', 'img/**'],
+                src: ['*.html', '*.js', '*.css' , 'js/**', 'mail/**', 'img/**', 'css/**'],
                 dest: 'build/',
             },
             jquery: {
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
                     paths: ["css"]
                 },
                 files: {
-                    "build/css/<%= pkg.name %>.css": "src/less/<%= pkg.name %>.less"
+                    "src/css/<%= pkg.name %>.css": "src/less/<%= pkg.name %>.less"
                 }
             },
             minified: {
@@ -78,7 +78,7 @@ module.exports = function(grunt) {
                     cleancss: true
                 },
                 files: {
-                    "build/css/<%= pkg.name %>.min.css": "src/less/<%= pkg.name %>.less"
+                    "src/css/<%= pkg.name %>.min.css": "src/less/<%= pkg.name %>.less"
                 }
             }
         },
