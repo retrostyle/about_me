@@ -7,22 +7,23 @@ module.exports = function(grunt) {
             main: {
                 src: [
                     'bower_components/jquery.easing/js/jquery.easing.js',
-                    'js/plugins/*.js',
-                    'js/<%= pkg.name %>.js'
+                    'src/js/<%= pkg.name %>.js'
                 ],
-                dest: 'dist/js/<%= pkg.name %>.js',
+                dest: 'build/js/<%= pkg.name %>.js',
             }
         },
         uglify: {
             main: {
-                src: 'dist/js/<%= pkg.name %>.js',
-                dest: 'dist/js/<%= pkg.name %>.min.js'
+                src: 'build/js/<%= pkg.name %>.js',
+                dest: 'build/js/<%= pkg.name %>.min.js'
             }
         },
         copy: {
             main: {
-                src: ['*.html','*.js', 'js/**', 'mail/**', 'img/**', 'less/**'],
-                dest: 'dist/',
+                expand: true,
+                cwd: 'src/',
+                src: ['*.html','*.js', 'js/**', 'mail/**', 'img/**'],
+                dest: 'build/',
             },
             jquery: {
                 files: [{
@@ -32,7 +33,7 @@ module.exports = function(grunt) {
                         'jquery.js',
                         'jquery.min.js'
                     ],
-                    dest: 'dist/js/'
+                    dest: 'build/js/'
                 }, ]
             },
             bootstrap: {
@@ -45,7 +46,7 @@ module.exports = function(grunt) {
                         'js/bootstrap.js',
                         'js/bootstrap.min.js'
                     ],
-                    dest: 'dist/'
+                    dest: 'build/'
                 }, ]
             },
             glyphicons: {
@@ -58,7 +59,7 @@ module.exports = function(grunt) {
                         'fonts/glyphicons-halflings-regular.ttf',
                         'fonts/glyphicons-halflings-regular.woff',
                     ],
-                    dest: 'dist/'
+                    dest: 'build/'
                 }, ]
             },
         },
@@ -68,7 +69,7 @@ module.exports = function(grunt) {
                     paths: ["css"]
                 },
                 files: {
-                    "dist/css/<%= pkg.name %>.css": "less/<%= pkg.name %>.less"
+                    "build/css/<%= pkg.name %>.css": "src/less/<%= pkg.name %>.less"
                 }
             },
             minified: {
@@ -77,7 +78,7 @@ module.exports = function(grunt) {
                     cleancss: true
                 },
                 files: {
-                    "dist/css/<%= pkg.name %>.min.css": "less/<%= pkg.name %>.less"
+                    "build/css/<%= pkg.name %>.min.css": "src/less/<%= pkg.name %>.less"
                 }
             }
         },
@@ -93,27 +94,27 @@ module.exports = function(grunt) {
                     banner: '<%= banner %>'
                 },
                 files: {
-                    src: ['dist/css/<%= pkg.name %>.css', 'dist/css/<%= pkg.name %>.min.css', 'dist/js/<%= pkg.name %>.js', 'dist/js/<%= pkg.name %>.min.js']
+                    src: ['build/css/<%= pkg.name %>.css', 'build/css/<%= pkg.name %>.min.css', 'build/js/<%= pkg.name %>.js', 'build/js/<%= pkg.name %>.min.js']
                 }
             }
         },
         watch: {
             scripts: {
-                files: ['js/<%= pkg.name %>.js, js/plugins/*.js'],
+                files: ['src/js/<%= pkg.name %>.js, js/plugins/*.js'],
                 tasks: ['concat', 'uglify'],
                 options: {
                     spawn: false,
                 },
             },
             copy: {
-                files: ['*.html', 'mail/**', 'img/**', 'less/**'],
+                files: ['src/*.html', 'src/mail/**', 'src/img/**', 'src/less/**'],
                 tasks: ['copy'],
                 options: {
                     spawn: false,
                 }
             },
             less: {
-                files: ['less/*.less'],
+                files: ['src/less/*.less'],
                 tasks: ['less'],
                 options: {
                     spawn: false,
